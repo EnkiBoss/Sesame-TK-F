@@ -117,7 +117,10 @@ jobs:
           NORMAL_FILE: ${{ steps.extract_apks.outputs.signed_normal }}
           COMPATIBLE_FILE: ${{ steps.extract_apks.outputs.signed_compatible }}
           COMMIT_MESSAGE: |+
-            New push to github\!
+
+            *来自 Sesame-TK-FF*
+            
+            *New push to github\!*         
             ```
             ${{ github.event.head_commit.message }}
             ```by `${{ github.event.head_commit.author.name }}`

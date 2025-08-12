@@ -75,6 +75,20 @@ public class ForestChouChouLe {
                                         doublecheck = true;
                                     }
                                 }
+                                if (taskType.equals("FOREST_NORMAL_DRAW_CAR30s")) {// 去玩森林小车车
+                                    String sginRes =  AntForestRpcCall.finishTaskopengreen(taskType, taskSceneCode);
+                                    if (ResChecker.checkRes(TAG, sginRes)) {
+                                        Log.forest( "森林寻宝🧾：" + taskName);
+                                        doublecheck = true;
+                                    }
+                                }
+                                if (taskType.equals("FOREST_NORMAL_DRAW_XIAO30s")) {// 去玩森林消消乐
+                                    String sginRes =  AntForestRpcCall.finishTaskopengreen(taskType, taskSceneCode);
+                                    if (ResChecker.checkRes(TAG, sginRes)) {
+                                        Log.forest( "森林寻宝🧾：" + taskName);
+                                        doublecheck = true;
+                                    }
+                                }
                             }
 
                             if (taskStatus.equals(TaskStatus.FINISHED.name())) {// 领取奖励

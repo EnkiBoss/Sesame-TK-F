@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import fansirsqi.xposed.sesame.entity.AlipayVersion;
@@ -829,8 +830,4 @@ public class AntForestRpcCall {
         String args = "[" + params + "]";
         return RequestManager.requestString("com.alipay.antieptask.finishTaskopengreen", args);
     }
-
 }
-
-
-

@@ -20,6 +20,9 @@ import fansirsqi.xposed.sesame.R;
 import fansirsqi.xposed.sesame.model.ModelField;
 import fansirsqi.xposed.sesame.util.Log;
 
+import android.os.Build;
+import androidx.core.text.HtmlCompat;
+
 /**
  * 字符串对话框工具类。
  * 提供了显示编辑对话框和读取对话框的静态方法。
@@ -119,7 +122,8 @@ public class StringDialog {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             parsedMsg = Html.fromHtml(msg, Html.FROM_HTML_MODE_LEGACY);
         } else {
-            parsedMsg = Html.fromHtml(msg);
+            // 使用兼容库处理旧版本
+            parsedMsg = HtmlCompat.fromHtml(msg, HtmlCompat.FROM_HTML_MODE_LEGACY);
         }
 
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(c)

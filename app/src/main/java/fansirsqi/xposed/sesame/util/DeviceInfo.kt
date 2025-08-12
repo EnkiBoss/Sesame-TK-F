@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fansirsqi.xposed.sesame.BuildConfig
+import androidx.compose.ui.graphics.Color
 
 class PreviewDeviceInfoProvider : PreviewParameterProvider<Map<String, String>> {
     override val values: Sequence<Map<String, String>> = sequenceOf(
@@ -42,7 +43,6 @@ class PreviewDeviceInfoProvider : PreviewParameterProvider<Map<String, String>> 
         )
     )
 }
-
 
 @Composable
 fun DeviceInfoCard(info: Map<String, String>) {
@@ -84,6 +84,12 @@ fun DeviceInfoCard(info: Map<String, String>) {
                 }
                 Spacer(modifier = Modifier.height(4.dp))
             }
+            // 循环外单独显示红色自定义文字
+            Text(
+                text = "Statement：本APP是为学习研究用，请勿倒卖🪧",
+                fontSize = 13.sp,
+                color = Color.Red // 明确指定颜色
+             )
         }
     }
 }

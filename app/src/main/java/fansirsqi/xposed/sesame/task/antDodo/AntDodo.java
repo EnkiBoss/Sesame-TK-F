@@ -28,6 +28,12 @@ import fansirsqi.xposed.sesame.util.Log;
 import fansirsqi.xposed.sesame.util.maps.UserMap;
 import fansirsqi.xposed.sesame.util.ResChecker;
 import fansirsqi.xposed.sesame.util.TimeUtil;
+
+import org.json.JSONException;
+import java.util.ArrayList;
+import fansirsqi.xposed.sesame.data.DataCache;
+import java.util.List;
+
 public class AntDodo extends ModelTask {
     private static final String TAG = AntDodo.class.getSimpleName();
     @Override
@@ -192,7 +198,7 @@ public class AntDodo extends ModelTask {
         }
     }
     /**
-     * 神奇物种任务
+     * 获得任务奖励 * 神奇物种任务
      */
     private void receiveTaskAward() {
         try {

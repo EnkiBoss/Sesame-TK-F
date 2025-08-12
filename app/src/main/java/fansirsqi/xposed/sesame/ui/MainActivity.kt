@@ -48,6 +48,10 @@ import kotlinx.coroutines.withContext
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
+import fansirsqi.xposed.sesame.entity.FriendWatch
+import fansirsqi.xposed.sesame.ui.widget.ListDialog
+import fansirsqi.xposed.sesame.model.SelectModelFieldFunc
+
 //   欢迎自己打包 欢迎大佬pr
 //   项目开源且公益  维护都是自愿
 //   但是如果打包改个名拿去卖钱忽悠小白
@@ -103,6 +107,9 @@ class MainActivity : BaseActivity() {
             val result = FansirsqiUtil.getOneWord()
             oneWord.text = result
         }
+
+        // 原始代码完全注释掉：
+        /*
         c = SecureApiClient(baseUrl = getRandomApi(0x22), signatureKey = getRandomEncryptData(0xCF))
         lifecycleScope.launch {
             val result = withContext(Dispatchers.IO) {
@@ -123,6 +130,15 @@ class MainActivity : BaseActivity() {
             }
 
         }
+        */
+
+        // ====== 跳过验证 ====== //
+        c = SecureApiClient(baseUrl = getRandomApi(0x22), signatureKey = getRandomEncryptData(0xCF))
+        lifecycleScope.launch {
+            // 直接设置验证通过
+            ViewAppInfo.veriftag = true
+        }
+        // ====== 结束 ====== //
 
     }
 
@@ -195,7 +211,15 @@ class MainActivity : BaseActivity() {
             }
 
             R.id.btn_friend_watch -> {
-                ToastUtil.makeText(this, "🏗 功能施工中...", Toast.LENGTH_SHORT).show()
+                // ToastUtil.makeText(this, "🏗 功能施工中...", Toast.LENGTH_SHORT).show()
+                showSelectionDialog(
+                    "🤣 请选择有效账户[别选默认]",
+                    userNameArray,
+                    { index: Int -> this.goFriendWatch(index) },
+                    "😡 老子不选了，滚",
+                    {},
+                    false
+                )
                 return
             }
 
@@ -383,6 +407,22 @@ class MainActivity : BaseActivity() {
         }
     }
 
+
+    private fun goFriendWatch(index: Int) {
+        val userEntity = userEntityArray[index]
+        if (userEntity != null) {
+            ListDialog.show(
+                this,
+                getString(R.string.friend_watch),
+                FriendWatch.getList(userEntity.userId),
+                SelectModelFieldFunc.newMapInstance(),
+                false,
+                ListDialog.ListType.SHOW
+            )
+        } else {
+            ToastUtil.makeText(this, "😡 别选默认！！！！！！！！", Toast.LENGTH_LONG).show()
+        }
+    }
     private fun goSettingActivity(index: Int) {
         if (Detector.loadLibrary("checker")) {
             val userEntity = userEntityArray[index]

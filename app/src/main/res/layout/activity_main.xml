@@ -68,7 +68,7 @@
             style="@style/Widget.App.Button.Main"
             android:onClick="onClick"
             android:text="@string/farm_log"
-            app:icon="@drawable/farm2"
+            app:icon="@drawable/farm"
             app:layout_constraintEnd_toStartOf="@id/btn_other_log"
             app:layout_constraintStart_toEndOf="@id/btn_forest_log"
             app:layout_constraintTop_toTopOf="parent" />

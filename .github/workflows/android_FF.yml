@@ -1,5 +1,5 @@
 name: Android FF
-run-name: 📦 ${{ github.actor }} Pack ${{ github.ref_name }} Sesame-TK CI
+run-name: 📦 Sesame-TK FF
 
 on:
   push:
@@ -117,7 +117,6 @@ jobs:
           NORMAL_FILE: ${{ steps.extract_apks.outputs.signed_normal }}
           COMPATIBLE_FILE: ${{ steps.extract_apks.outputs.signed_compatible }}
           COMMIT_MESSAGE: |+
-
             *来自 Sesame-TK-FF*
             
             *New push to github\!*         

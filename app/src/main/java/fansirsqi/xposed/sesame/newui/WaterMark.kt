@@ -11,7 +11,7 @@ import fansirsqi.xposed.sesame.data.ViewAppInfo.verifyId
 class WatermarkView(context: android.content.Context) : android.view.View(context) {
 
     private val paint = Paint().apply {
-        color = "#66FF0000".toColorInt()
+        color = "#00FFFFFF".toColorInt()
         textSize = 38f
         isAntiAlias = true
         textAlign = Paint.Align.LEFT
@@ -68,9 +68,9 @@ class WatermarkView(context: android.content.Context) : android.view.View(contex
         colorCache.clear()
         repeat(maxDrawCount) {
             val alpha = 0xc6
-            val r = (180..255).random()
-            val g = (180..255).random()
-            val b = (180..255).random()
+            val r = (255..255).random()
+            val g = (255..255).random()
+            val b = (255..255).random()
             colorCache += (alpha shl 24) or (r shl 16) or (g shl 8) or b
         }
     }
@@ -100,7 +100,7 @@ class WatermarkView(context: android.content.Context) : android.view.View(contex
                 }
 
                 while (x < width * 2 && count < maxDrawCount) {
-                    paint.color = colorCache.getOrElse(count) { colorCache.lastOrNull() ?: 0x66FFFFFF.toInt() }
+                    paint.color = colorCache.getOrElse(count) { colorCache.lastOrNull() ?: 0x00FFFFFF.toInt() }
 
                     val centerX = x
                     val baseY = y - totalTextHeight / 2
@@ -129,7 +129,7 @@ class WatermarkView(context: android.content.Context) : android.view.View(contex
         fun install(
             activity: Activity,
             text: String = "",
-            color: Int = "#87FF0000".toColorInt(),
+            color: Int = "#00FFFFFF".toColorInt(),
             fontSize: Float = 28f,
             spacingX: Float = 2.5f,
             spacingY: Float = 3.7f

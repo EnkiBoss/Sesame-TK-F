@@ -15,21 +15,21 @@ import fansirsqi.xposed.sesame.task.reserve.Reserve
 object ModelOrder {
     private val array = arrayOf(
         BaseModel::class.java,       // 基础设置
-//        Antinvoice::class.java,      // 蚂蚁发票
         AntForest::class.java,       // 森林
         AntFarm::class.java,         // 庄园
-        AntOrchard::class.java,    // 农场
-        AntOcean::class.java,        // 海洋
-        AntDodo::class.java,       // 神奇物种
-//        AncientTree::class.java,     // 古树
-        AntCooperate::class.java,    // 合种
-        Reserve::class.java,       // 保护地
+        AntStall::class.java,        // 新村
         AntSports::class.java,       // 运动
-        AntMember::class.java,     // 会员
-        AntStall::class.java,      // 蚂蚁新村
-//        GreenFinance::class.java,  // 绿色经营
-//        OmegakoiTown::class.java,  // 小镇
+        AntOrchard::class.java,      // 农场
+        AntOcean::class.java,        // 海洋
+        AntMember::class.java,       // 会员
+        AntDodo::class.java,         // 神奇物种
+        AntCooperate::class.java,    // 合种
+        Reserve::class.java,         // 保护地
         AnswerAI::class.java         // AI答题
+//      AncientTree::class.java,     // 古树
+//      Antinvoice::class.java,      // 蚂蚁发票
+//      GreenFinance::class.java,    // 绿色经营
+//      OmegakoiTown::class.java,    // 小镇
     )
 
     val allConfig: List<Class<out Model>> = array.toList()

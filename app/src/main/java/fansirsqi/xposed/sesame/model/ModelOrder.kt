@@ -23,12 +23,15 @@ object ModelOrder {
         AntOcean::class.java,        // 海洋
         AntMember::class.java,       // 会员
         AntDodo::class.java,         // 神奇物种
+        AncientTree::class.java,     // 古树
         AntCooperate::class.java,    // 合种
+        GreenFinance::class.java,    // 绿色经营
         Reserve::class.java,         // 保护地
         AnswerAI::class.java         // AI答题
-//      AncientTree::class.java,     // 古树
+      
 //      Antinvoice::class.java,      // 蚂蚁发票
-//      GreenFinance::class.java,    // 绿色经营
+//      AntBookRead::class.java,     // 读书
+//      ConsumeGold::class.java,     // 消费金
 //      OmegakoiTown::class.java,    // 小镇
     )
 
